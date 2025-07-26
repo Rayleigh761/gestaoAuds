@@ -35,4 +35,12 @@
     pointer-events: none;
     transition: background-color 0.2s;
   }
+  
+  &.erro {
+    .custom-file-label {
+      border-color: #ef4444; /* Vermelho mais vibrante */
+      background-color: #fee2e2; /* Fundo vermelho claro */
+      color: #b91c1c; /* Texto vermelho escuro */
+    }
+  }
 }

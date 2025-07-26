@@ -8,20 +8,22 @@ import { Formulario } from './features/formulario/components/formulario/formular
 import { Footer } from './commom/components/footer/footer';
 import { MaterialModule } from './shared/material/material.module';
 import { ReactiveFormsModule  } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     App,
     Toolbar,
     Formulario,
-    Footer
+    Footer,
   ],
   imports: [
     BrowserModule,
     MaterialModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule
   ],
   providers: [
+    provideHttpClient(),
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideClientHydration(withEventReplay())

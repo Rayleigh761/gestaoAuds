@@ -1,82 +1,194 @@
-<div class="min-h-screen bg-yellow-400 flex flex-col items-center justify-start p-4">
-  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="bg-white rounded-lg shadow-lg p-8 w-full max-w-4xl space-y-6">
-    <h2 class="text-xl md:text-2xl font-bold text-center montserrat-extrabold">FORMULÁRIO DE ATENDIMENTO AO TITULAR DE DADOS</h2>
+<div
+  class="min-h-screen bg-yellow-400 flex flex-col items-center justify-start p-4"
+>
+  <form
+    [formGroup]="formulario"
+    (ngSubmit)="onSubmit()"
+    class="bg-white rounded-lg shadow-lg p-8 w-full max-w-4xl space-y-6"
+  >
+    <h2 class="text-xl md:text-2xl font-bold text-center montserrat-extrabold">
+      FORMULÁRIO DE ATENDIMENTO AO TITULAR DE DADOS
+    </h2>
     <p class="text-sm text-center text-gray-600">Preencha seus dados abaixo:</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div>
         <label class="block text-sm font-medium mb-2">Nome *</label>
-        <input type="text" class="w-full p-2 border border-gray-300 rounded-lg" />
+        <input
+          type="text"
+          formControlName="nome"
+          class="w-full p-2 border border-gray-300 rounded-lg"
+          [ngClass]="{
+            'border-red-500 ring-red-300':
+              formulario.get('nome')?.invalid && formulario.get('nome')?.touched
+          }"
+        />
       </div>
       <div>
         <label class="block text-sm font-medium mb-2">Sobrenome *</label>
-        <input type="text" class="w-full p-2 border border-gray-300 rounded-lg" />
+        <input
+          type="text"
+          formControlName="sobrenome"
+          class="w-full p-2 border border-gray-300 rounded-lg"
+          [ngClass]="{
+            'border-red-500 ring-red-300':
+              formulario.get('sobrenome')?.invalid && formulario.get('sobrenome')?.touched
+          }"          
+        />
       </div>
 
       <div>
         <label class="block text-sm font-medium mb-2">E-mail *</label>
-        <input type="email" class="w-full p-2 border border-gray-300 rounded-lg" />
+        <input
+          type="email"
+          formControlName="email"
+          class="w-full p-2 border border-gray-300 rounded-lg"
+          [ngClass]="{
+            'border-red-500 ring-red-300':
+              formulario.get('email')?.invalid && formulario.get('email')?.touched
+          }"           
+        />
       </div>
       <div>
         <label class="block text-sm font-medium mb-2">Celular com DDD *</label>
-        <input type="tel" class="w-full p-2 border border-gray-300 rounded-lg" />
+        <input
+          type="tel"
+          formControlName="celular"
+          class="w-full p-2 border border-gray-300 rounded-lg"
+          [ngClass]="{
+            'border-red-500 ring-red-300':
+              formulario.get('celular')?.invalid && formulario.get('celular')?.touched
+          }"             
+        />
       </div>
 
       <div>
         <label class="block text-sm font-medium mb-2">CPF *</label>
-        <input type="text" class="w-full p-2 border border-gray-300 rounded-lg" />
+        <input
+          type="text"
+          formControlName="cpf"
+          class="w-full p-2 border border-gray-300 rounded-lg"
+          [ngClass]="{
+            'border-red-500 ring-red-300':
+              formulario.get('cpf')?.invalid && formulario.get('cpf')?.touched
+          }"            
+        />
       </div>
       <div>
         <label class="block text-sm font-medium mb-2">Documento de identificação com foto *</label>
-        <div class="custom-file-input-wrapper">
-          <input type="file" class="custom-file-input" id="arquivo" />
-          <label for="arquivo" class="custom-file-label">Selecionar arquivo</label>
+        <div 
+          class="custom-file-input-wrapper"
+          [ngClass]="{
+            'erro':
+              formulario.get('documento')?.invalid && (formulario.get('documento')?.touched || formulario.get('documento')?.dirty)
+          }"           
+        >
+          <input 
+            type="file" 
+            class="custom-file-input" 
+            id="arquivo" 
+            formControlName="documento"  
+          />
+          <label for="arquivo" class="custom-file-label"
+            >Selecionar arquivo</label
+          >
         </div>
-        <p class="text-xs text-gray-500 mt-1">Documentos aceitos: RG, CNH ou Passaporte.</p>
+        <p class="text-xs text-gray-500 mt-1">
+          Documentos aceitos: RG, CNH ou Passaporte.
+        </p>
       </div>
 
       <div>
         <label class="block text-sm font-medium mb-2">Quero falar sobre *</label>
-        <select class="w-full p-2 border border-gray-300 rounded-lg">
+        <select
+          formControlName="assunto"
+          class="w-full p-2 border border-gray-300 rounded-lg"
+          [ngClass]="{
+            'border-red-500 ring-red-300':
+              formulario.get('assunto')?.invalid && formulario.get('assunto')?.touched
+          }"               
+        >
           <option>- Selecione -</option>
         </select>
       </div>
       <div>
         <label class="block text-sm font-medium mb-2">Sou um: *</label>
-        <select class="w-full p-2 border border-gray-300 rounded-lg">
+        <select
+          formControlName="tipoPessoa"
+          class="w-full p-2 border border-gray-300 rounded-lg"
+          [ngClass]="{
+            'border-red-500 ring-red-300':
+              formulario.get('tipoPessoa')?.invalid && formulario.get('tipoPessoa')?.touched
+          }"              
+        >
           <option>- Selecione -</option>
         </select>
       </div>
 
       <div>
         <label class="block text-sm font-medium mb-2">Tipo de solicitação *</label>
-        <select class="w-full p-2 border border-gray-300 rounded-lg">
+        <select
+          formControlName="tipoSolicitacao"
+          class="w-full p-2 border border-gray-300 rounded-lg"
+          [ngClass]="{
+            'border-red-500 ring-red-300':
+              formulario.get('tipoSolicitacao')?.invalid && formulario.get('tipoSolicitacao')?.touched
+          }"              
+        >
           <option>- Selecione -</option>
         </select>
       </div>
       <div>
         <label class="block text-sm font-medium mb-2">Já possui protocolos abertos? *</label>
-        <select class="w-full p-2 border border-gray-300 rounded-lg">
+        <select
+          formControlName="possuiProtocolos"
+          class="w-full p-2 border border-gray-300 rounded-lg"
+          [ngClass]="{
+            'border-red-500 ring-red-300':
+              formulario.get('possuiProtocolos')?.invalid && formulario.get('possuiProtocolos')?.touched
+          }"            
+        >
           <option>- Selecione -</option>
         </select>
       </div>
       <div class="md:col-span-1">
         <label class="block text-sm font-medium mb-2">Insira aqui os protocolos abertos</label>
-        <div class="custom-file-input-wrapper">
-          <input type="file" class="custom-file-input" id="arquivo" />
+        <div 
+          class="custom-file-input-wrapper"
+          [ngClass]="{
+            'erro':
+            formulario.get('protocolos')?.invalid && (formulario.get('protocolos')?.touched || formulario.get('protocolos')?.dirty)
+          }"        
+        >
+          <input 
+            type="file" 
+            class="custom-file-input"            
+            id="arquivo" 
+            formControlName="protocolos"            
+            />
           <label for="arquivo" class="custom-file-label">Selecionar arquivo</label>
         </div>
       </div>
 
       <div>
         <label class="block text-sm font-medium mb-2">Escreva aqui mais detalhes sobre sua solicitação *</label>
-        <textarea rows="3" class="w-full p-2 border border-gray-300 rounded-lg resize-none"></textarea>
-      </div>      
-
+        <textarea
+          formControlName="detalhes"
+          rows="3"
+          class="w-full p-2 border border-gray-300 rounded-lg resize-none"
+          [ngClass]="{
+            'border-red-500 ring-red-300':
+              formulario.get('detalhes')?.invalid && formulario.get('detalhes')?.touched
+          }"              
+        ></textarea>
+      </div>
     </div>
 
     <div class="flex justify-center">
-      <button type="submit" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-6 rounded-lg">
+      <button
+        type="submit"
+        class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-6 rounded-lg"
+      >
         Enviar
       </button>
     </div>
@@ -84,12 +196,18 @@
   <div class="text-xs text-gray-800 mt-6 px-4 md:px-0 max-w-3xl mx-auto leading-relaxed">
     <p class="font-bold mb-1">* Campo Obrigatório</p>
     <p>
-      Esta solicitação se destina exclusivamente a assuntos relacionados à Lei Geral de Proteção de Dados Pessoais (LGPD).<br />
-      Ao enviar este formulário, o titular declara estar ciente e de acordo com o uso dos dados pessoais informados acima,
-      exclusivamente para fins de atendimento à sua solicitação incluindo o recebimento de contatos relacionados à sua condução.<br />
-      Declara ainda que as informações prestadas são verdadeiras, assumindo total responsabilidade por seu conteúdo.<br />
-      O prazo para resposta é de até 15 (quinze) dias, contados a partir da confirmação da identidade do titular, conforme previsto na LGPD.<br />
-      Solicitações sobre outros assuntos devem ser direcionadas aos nossos Canais de Atendimento oficiais.
+      Esta solicitação se destina exclusivamente a assuntos relacionados à Lei
+      Geral de Proteção de Dados Pessoais (LGPD).<br />
+      Ao enviar este formulário, o titular declara estar ciente e de acordo com
+      o uso dos dados pessoais informados acima, exclusivamente para fins de
+      atendimento à sua solicitação incluindo o recebimento de contatos
+      relacionados à sua condução.<br />
+      Declara ainda que as informações prestadas são verdadeiras, assumindo
+      total responsabilidade por seu conteúdo.<br />
+      O prazo para resposta é de até 15 (quinze) dias, contados a partir da
+      confirmação da identidade do titular, conforme previsto na LGPD.<br />
+      Solicitações sobre outros assuntos devem ser direcionadas aos nossos
+      Canais de Atendimento oficiais.
     </p>
   </div>
 </div>
