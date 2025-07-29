@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class HttpBase {
   private readonly httpClient!: HttpClient;
-  private apiBase = 'https://api.adviceslip.com/';
+  private apiBase = 'http://localhost:3000/';
 
   constructor(protected readonly injector: Injector){ 
     if(injector == null || injector == undefined){
