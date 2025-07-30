@@ -33,7 +33,7 @@ export class Formulario implements OnInit{
       celular: ['', Validators.required],
       cpf: ['', Validators.required],
       documento: [null, Validators.required],
-      assunto: ['0', Validators.required],
+      assunto: ['', Validators.required],
       tipoPessoa: ['', Validators.required],
       tipoSolicitacao: ['', Validators.required],
       possuiProtocolos: ['', Validators.required],
@@ -145,7 +145,7 @@ export class Formulario implements OnInit{
     .getBibFalarSobre()
     .subscribe({
       next: (response: any) => {
-        this.bibFalarSobre = response.bibFala || [];
+        this.bibFalarSobre = response.bib || [];
       },
       error: () => {
         this.bibFalarSobre = []; 

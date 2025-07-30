@@ -111,7 +111,7 @@
       </div>
 
       <div>
-        <label class="block text-sm font-medium mb-2">Quero falar sobre *</label>
+        <label class="block text-sm font-medium mb-2">Quero falar sobre a*</label>
         <select
           formControlName="assunto"
           class="w-full p-2 border border-gray-300 rounded-lg"
@@ -120,7 +120,7 @@
               formulario.get('assunto')?.invalid && formulario.get('assunto')?.touched
           }"               
         >
-          <option value="0">- Selecione -</option>
+          <option value="">- Selecione -</option>
           <option *ngFor="let assunto of bibFalarSobre" [value]="assunto.CD_Tipos">{{assunto.DS_Tipo}}</option>          
         </select>
       </div>
@@ -134,7 +134,7 @@
               formulario.get('tipoPessoa')?.invalid && formulario.get('tipoPessoa')?.touched
           }"              
         >
-          <option>- Selecione -</option>
+          <option value="">- Selecione -</option>
         </select>
       </div>
 
@@ -148,11 +148,11 @@
               formulario.get('tipoSolicitacao')?.invalid && formulario.get('tipoSolicitacao')?.touched
           }"              
         >
-          <option>- Selecione -</option>
+          <option value="">- Selecione -</option>
         </select>
       </div>
       <div>
-        <label class="block text-sm font-medium mb-2">Já possui protocolos abertos? *</label>
+        <label class="block text-sm font-medium mb-2">Você já possuí protocolos abertos nos nossos canais de atendimento? *</label>
         <select
           formControlName="possuiProtocolos"
           class="w-full p-2 border border-gray-300 rounded-lg"
@@ -161,7 +161,9 @@
               formulario.get('possuiProtocolos')?.invalid && formulario.get('possuiProtocolos')?.touched
           }"            
         >
-          <option>- Selecione -</option>
+          <option value="">- Selecione -</option>
+          <option value="1">Sim</option>
+          <option value="2">Não</option>                    
         </select>
       </div>
       <div class="md:col-span-1">

@@ -19,10 +19,10 @@ export interface FormularioDados {
   email: string;
   celular: string;
   cpf: string;
-  assunto: string;
-  tipoPessoa: string;
-  tipoSolicitacao: string;
-  possuiProtocolos: string;
+  assunto: number;
+  tipoPessoa: number;
+  tipoSolicitacao: number;
+  possuiProtocolos: number;
   detalhes: string;
 }
 
